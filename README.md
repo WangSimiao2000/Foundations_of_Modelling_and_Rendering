@@ -25,7 +25,7 @@
 
 镜面反射:
 
-![b3425ecd5df6d93bcc65753a34ac21a](https://github.com/user-attachments/assets/9f3d6eaf-ea70-4184-ae7b-384273bdebe7)
+<img width="812" alt="b3425ecd5df6d93bcc65753a34ac21a" src="https://github.com/user-attachments/assets/9f3d6eaf-ea70-4184-ae7b-384273bdebe7">
 
 透明物体折射+反射: 
 
