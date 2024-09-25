@@ -19,6 +19,18 @@
 
 # Raytracing 光线追踪
 
+## Setup 环境配置和初始化
+
+1. 下载QT及 QT Creater, 链接: https://www.qt.io/download-dev?hsLang=en
+2. 安装过程注意选择 QT 5.13.0 或接近的稳定版本, 
+3. 双击打开 Raytracing\RaytraceRenderWindow 路径下的 RaytraceRenderWindow.pro 文件
+4. 在配置项目处, 选择 Desktop Qt 5.13.0 MinGW 32-bit (或其他版本), 勾选 Debug 和 Release, 点击Configure Project
+5. 点击QT Creater左侧项目扳手图标, 在构建和运行处, 选择 Desktop Qt 5.13.0 MinGW 32-bit (或其他版本), 选择运行, 在Command line arguments处输入.obj文件和.mtl文件的路径(该文件在与RaytraceRenderWindow文件夹同级的objects文件夹中), 用空格隔开
+6. 点击运行按钮
+7. 在出现的窗口中
+
+## ScreenShot 截图
+
 显示法线方向:
 
 <img width="812" alt="bd73770c3aee1e85d687017454186df" src="https://github.com/user-attachments/assets/81e466dc-6967-44de-939d-b776cf0b1281">
