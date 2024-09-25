@@ -148,11 +148,11 @@ void LoadModel() {
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
 	glVertexAttribPointer(
 		0,                  // attribute 
-		3,                  // size (we have x,y,z) 
-		GL_FLOAT,           // type of each individual element 
-		GL_FALSE,           // normalized? 
-		0,                  // stride 
-		(void*)0            // array buffer offset 
+		3,                  // size (we have x,y,z) 尺寸(我们有x,y,z),这个是用来指定顶点属性的组件数量
+		GL_FLOAT,           // type of each individual element 每个组件的类型
+		GL_FALSE,           // normalized? 归一化?
+		0,                  // stride 步长, 这个是指定连续顶点属性之间的间隔, 0表示他们是紧密排列的
+		(void*)0            // array buffer offset 缓冲区偏移
 	);
 
 	// 配置UV坐标
@@ -657,12 +657,18 @@ unsigned int loadCubemap(vector<std::string> faces)
 	glGenTextures(1, &skytextureID);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, skytextureID);
 
-	int width, height, nrChannels;
+	int width, height, nrChannels; // 宽度，高度，颜色通道数
+	
+	// 加载天空盒纹理
 	for (unsigned int i = 0; i < faces.size(); i++)
 	{
+		// 读取图片
 		unsigned char* data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
+
+		// 如果图片读取成功
 		if (data)
 		{
+			// 生成纹理
 			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
 				0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data
 			);
@@ -674,6 +680,7 @@ unsigned int loadCubemap(vector<std::string> faces)
 			stbi_image_free(data);
 		}
 	}
+	// 设置纹理参数
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -822,7 +829,7 @@ int main() {
 		//fix problem
 
 		glDrawElements(
-			GL_TRIANGLE_STRIP,      // mode 
+			GL_TRIANGLE_STRIP,      // mode GL_TRIANGLES_STRIP指的是绘制三角形带, 三角形带是由一系列相邻的三角形组成的, 除了三角形带以外, 还有GL_TRIANGLES, GL_TRIANGLE_FAN等
 			(GLsizei)nIndices,    // count 
 			GL_UNSIGNED_INT,	// type 
 			(void*)0           // element array buffer offset 
@@ -843,8 +850,8 @@ int main() {
 
 		// A2: 天空盒 Skybox 
 		// Ensure that the Sky Box is drawn after other objects in the scene
-		glDepthFunc(GL_LEQUAL);
-		glUseProgram(skyboxProgramID);
+		glDepthFunc(GL_LEQUAL); // 将深度函数设置为小于或等于, 以便在深度缓冲区中的值等于1.0时仍然绘制
+		glUseProgram(skyboxProgramID); // 使用天空盒着色器程序
 		// The translation matrix was removed from the view matrix. Ensure that the Sky Box renders only relative to the direction of the camera, without considering camera position, to create an infinitely distant sky effect
 		glm::mat4 skyViewMatrix = glm::mat4(glm::mat3(ViewMatrix));
 		// Projection Matrix
@@ -860,7 +867,7 @@ int main() {
 		// Disable depth writing to draw the skybox behind everything else
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		// Re-enable depth writing
-		glDepthFunc(GL_LESS);
+		glDepthFunc(GL_LESS); // 恢复深度函数
 
 		// Swap buffers 
 		glfwSwapBuffers(window);
