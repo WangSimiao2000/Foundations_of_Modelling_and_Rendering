@@ -44,19 +44,19 @@
 
 显示法线方向:
 
-![Normal](\Pic\Normal.png)
+![Normal](Pic/Normal.png)
 
 左右两侧墙壁反射+球体反射+阴影:
 
-![Reflection_3](\Pic\Reflection_Wall_Ball.png)
+![Reflection_3](Pic/Reflection_Wall_Ball.png)
 
 透明物体折射+反射: 
 
-![Reflection_Refraction](\Pic\Reflection_Refraction.png)
+![Reflection_Refraction](Pic/Reflection_Refraction.png)
 
 透明物体折射+反射+阴影: 
 
-![Reflection_Refraction_Shadow](\Pic\Reflection_Refraction_Shadow.png)
+![Reflection_Refraction_Shadow](Pic/Reflection_Refraction_Shadow.png)
 
 # Contact Information 联系方式
 
