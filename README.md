@@ -26,26 +26,37 @@
 3. 双击打开 Raytracing\RaytraceRenderWindow 路径下的 RaytraceRenderWindow.pro 文件
 4. 在配置项目处, 选择 Desktop Qt 5.13.0 MinGW 32-bit (或其他版本), 勾选 Debug 和 Release, 点击Configure Project
 5. 点击QT Creater左侧项目扳手图标, 在构建和运行处, 选择 Desktop Qt 5.13.0 MinGW 32-bit (或其他版本), 选择运行, 在Command line arguments处输入.obj文件和.mtl文件的路径(该文件在与RaytraceRenderWindow文件夹同级的objects文件夹中), 用空格隔开
-6. 点击运行按钮
-7. 在出现的窗口中
+6. 点击左侧绿色三角形按钮, 运行程序
+7. 在出现的窗口中, 勾选中间选框, 点击右侧 Raytrace 按钮, 即可开始渲染光线追踪画面
+
+## Functionality 已实现的按钮功能 
+
+1. Interpolation: 显示法线
+2. Phong: 光照模型
+3. Shadow: 阴影
+4. Reflection: 反射
+5. Refraction: 折射
+6. Fresnel: 菲涅尔效应
+7. Monte Carlo: 蒙特卡洛采样
+8. Orthographic: 正交投影
 
 ## ScreenShot 截图
 
 显示法线方向:
 
-<img width="812" alt="bd73770c3aee1e85d687017454186df" src="https://github.com/user-attachments/assets/81e466dc-6967-44de-939d-b776cf0b1281">
+![Normal](Pic\Normal.png)
 
-镜面反射:
+左右两侧墙壁反射+球体反射+阴影:
 
-<img width="812" alt="b3425ecd5df6d93bcc65753a34ac21a" src="https://github.com/user-attachments/assets/9f3d6eaf-ea70-4184-ae7b-384273bdebe7">
+![Reflection_3](Pic\Reflection_Wall_Ball.png)
 
 透明物体折射+反射: 
 
-<img width="812" alt="2299f253c61a0130182372cfe33134b" src="https://github.com/user-attachments/assets/30f21059-c31d-4589-83be-ff7aaeb8fadd">
+![Reflection_Refraction](Pic\Reflection_Refraction.png)
 
 透明物体折射+反射+阴影: 
 
-<img width="812" alt="3eb3508e2cce1b60e66617513205e0f" src="https://github.com/user-attachments/assets/3e2ba92f-f30f-4e5c-9327-e69f6b74d086">
+![Reflection_Refraction_Shadow](Pic\Reflection_Refraction_Shadow.png)
 
 # Contact Information 联系方式
 
